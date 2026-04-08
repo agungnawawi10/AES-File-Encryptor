@@ -69,7 +69,7 @@ def dekripsi():
 
 
 # === Styling ===
-BG_COLOR = "#232946"
+BG_COLOR = "#FFFFFF"
 FG_COLOR = "#eebbc3"
 ENTRY_BG = "#121629"
 BTN_BG = "#eebbc3"
