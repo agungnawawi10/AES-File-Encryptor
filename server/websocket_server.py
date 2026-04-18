@@ -1,6 +1,7 @@
 # type: ignore
 import asyncio
 from crypto.encrypt import encrypt
+from crypto.decrypt import decrypt
 import websockets
 from rich.live import Live
 from rich.panel import Panel
@@ -11,11 +12,12 @@ import random
 bars = "▁▂▃▄▅▆▇"
 status = "Idle"
 encrypted_text = ""
+decrypted_text = ""
 history = []
 
 
 async def handler(websocket):
-    global status, encrypted_text
+    global status, encrypted_text, decrypted_text
 
     status = "Connected"
 
@@ -26,9 +28,18 @@ async def handler(websocket):
             result = encrypt(message)
             encrypted_text = ""
 
-            # 🔥 streaming per karakter
+            # streaming per karakter
             for char in result:
                 encrypted_text += char
+                await asyncio.sleep(0.02)
+
+            status = "Decrypting"
+
+            # streaming decrypt
+            original = decrypt(result)
+
+            for char in original:
+                decrypted_text += char 
                 await asyncio.sleep(0.02)
 
             await websocket.send(result)
@@ -48,7 +59,7 @@ def generate_wave():
 
 
 async def ui_loop():
-    global status, encrypted_text
+    global status, encrypted_text, decrypted_text
 
     with Live(refresh_per_second=10) as live:
         while True:
@@ -59,8 +70,10 @@ async def ui_loop():
             content.append(wave + "\n\n", style="cyan")
             content.append("Encrypted:\n", style="bold yellow")
             content.append(encrypted_text, style="yellow")
+            content.append("\n\nDecrypted:\n", style="bold green")
+            content.append(decrypted_text, style="green")
 
-            # Tambahkan history di sini
+            # history di sini
             content.append("\nHistory:\n", style="bold magenta")
             for item, t in history[-5:]:
                 content.append(f"[{t}] {item}\n", style="magenta")
