@@ -3,7 +3,7 @@ from Crypto.Cipher import AES
 from Crypto.Random import get_random_bytes
 import base64
 
-KEY = b"1234567890123456"  # 16 bytes
+KEY = b"akujugagatau"
 
 
 def encrypt(text):
