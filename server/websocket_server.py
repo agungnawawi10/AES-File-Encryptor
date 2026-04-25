@@ -26,7 +26,7 @@ async def handler(websocket):
             status = "Encrypting"
 
             result = encrypt(message)
-            encrypted_text = ""
+            encrypted_text = "\n"
 
             # streaming per karakter
             for char in result:
@@ -37,6 +37,7 @@ async def handler(websocket):
 
             # streaming decrypt
             original = decrypt(result)
+            decrypted_text += "\n"
 
             for char in original:
                 decrypted_text += char 
