@@ -1,1 +1,1 @@
-"# AES-File-Encryptor" 
+"# AES-Text-Encryptor" 
