@@ -1,5 +1,5 @@
-from crypto.decrypt import decrypt
-from crypto.encrypt import encrypt
+from aeslib.decrypt import decrypt
+from aeslib.encrypt import encrypt
 
 
 text = "halo dunia"
