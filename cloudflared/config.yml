@@ -1,7 +1,0 @@
-tunnel: YOUR_TUNNEL_UUID
-credentials-file: C:\Users\YOUR_WINDOWS_USER\.cloudflared\YOUR_TUNNEL_UUID.json
-
-ingress:
-  - hostname: chat.example.com
-    service: http://localhost:8765
-  - service: http_status:404

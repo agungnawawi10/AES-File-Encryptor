@@ -1,0 +1,8 @@
+version: "2"
+
+authtoken: "YOUR_AUTH_TOKEN"
+
+tunnels:
+  websocket:
+    proto: http
+    addr: 8765
