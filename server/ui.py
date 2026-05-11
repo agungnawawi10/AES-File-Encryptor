@@ -181,6 +181,7 @@ def build_encrypt_panel() -> Panel:
         ENCRYPTION_COLOR,
     )
     return _panel(content, "🔐 AES Encrypted", ENCRYPTION_COLOR)
+    # return _panel(content, "🔐 AES Encrypted", ENCRYPTION_COLOR)
 
 
 # =========================
@@ -193,6 +194,7 @@ def build_decrypt_panel() -> Panel:
         "Awaiting encrypted input…",
         POSITIVE_COLOR,
     )
+    # return _panel(content, "🔓 AES Decrypted",SURFACE_BORDER)
     return _panel(content, "🔓 AES Decrypted", POSITIVE_COLOR)
 
 
@@ -218,6 +220,7 @@ def build_history_panel() -> Panel:
             history_text.append(f"[{t}] ", style=DIM)
             history_text.append(f"{item}\n", style=MUTED)
 
+    # return _panel(history_text, "📜 Activity History", SURFACE_BORDER)
     return _panel(history_text, "📜 Activity History", HISTORY_COLOR)
 
 
@@ -243,6 +246,7 @@ def build_encrypted_history_panel() -> Panel:
             enc_text.append(f"[{t}] ", style=DIM)
             enc_text.append(f"{item}\n", style=ENCRYPTION_COLOR)
 
+    # return _panel(enc_text, "🛡 Encrypted History", SURFACE_BORDER)
     return _panel(enc_text, "🛡 Encrypted History", HISTORY_COLOR)
 
 
